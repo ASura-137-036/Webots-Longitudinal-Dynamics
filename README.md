@@ -68,6 +68,12 @@ the ODE trajectory to measured data. That is the heart of the project — not ju
 but a parameter-estimation workflow in the same family as modern differentiable simulation and Neural ODE
 methodology.
 
+A core design choice is that the model is intentionally built to be numerically smooth and easy to
+differentiate. The drive, brake, and resistance terms are regularized with smooth functions such as tanh,
+so the force law remains continuous and well-conditioned across the operating region. This matters because
+it improves gradient flow through the ODE solution, stabilizes optimization, and helps the solver converge
+reliably when fitting a physical model to trajectory data.
+
 Ten states — heave, pitch, two unsprung heights, position, speed and their rates — with a longitudinal
 force made of exactly three terms:
 
@@ -108,6 +114,11 @@ a simple half-car system with a clear physical meaning. That makes the result mo
 inspectable, and more suitable for engineering use. At the same time, it still benefits from the strengths
 of the modern ML workflow: gradient-based optimization, data-driven calibration, and fast iteration over the
 model structure.
+
+This is also why the force laws are shaped to be differentiable by design. Smooth approximations such as tanh
+and smooth_min keep the model well-behaved under automatic differentiation, which directly improves
+optimization stability and convergence. In other words, the physics model is not just interpretable — it is
+engineered to be a good target for differentiable fitting.
 
 This is exactly why the workflow is relevant beyond simulation. The same approach applies to real vehicle data
 as long as the model is tuned to the sensing setup, noise characteristics, and operating regime. In that sense,
