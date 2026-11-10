@@ -5,9 +5,8 @@ System identification of a vehicle's longitudinal and vertical dynamics from a W
 This project demonstrates a differentiable, physics-grounded workflow for learning the parameters of a
 vehicle dynamics model from trajectory data. Rather than fitting a black-box surrogate, we estimate the
 parameters of a compact half-car model by solving its ODE and backpropagating through the trajectory with
-automatic differentiation. The result is a model that is both interpretable and control-ready: grounded in
-vehicle physics, optimized with modern SciML tooling, and useful for simulation, prediction, and digital-twin
-applications.
+automatic differentiation. The result is an interpretable model grounded in vehicle physics and optimized
+with modern SciML tooling, with potential applications in simulation, prediction, and future control work.
 
 A Range Rover Sport SVR (converted to electric drive) is driven along a straight highway by a scripted
 throttle and brake schedule while a supervisor controller records roughly 140 channels — speed, position,
@@ -30,8 +29,8 @@ pipeline without sacrificing physical meaning.
 
 - interpretable, compact model instead of a black-box surrogate
 - gradients through the ODE trajectory rather than ad hoc finite-difference fitting
-- direct parameter estimation from real dynamic measurements
-- strong fit for control-oriented applications and model-based design
+- parameter estimation from recorded Webots trajectories
+- a foundation for future control-oriented applications and model-based design
 - a general workflow for any system where a mechanistic model exists but the parameters do not
 
 This workflow is especially useful when important physical parameters are difficult or impractical to
@@ -41,7 +40,7 @@ model capture the dominant behavior of a more complex system over the operating 
 keeping it efficient for prediction and control. It does not reproduce every detail of the complex system;
 its usefulness depends on choosing a model structure and calibration data suited to the task.
 
-The key use cases are immediate and practically relevant:
+Potential applications include:
 
 - model predictive control (MPC) for longitudinal motion, pitch regulation, and load-transfer-aware driving
 - digital twins for vehicle behavior, diagnostics, and virtual prototyping
@@ -49,11 +48,10 @@ The key use cases are immediate and practically relevant:
 - controller synthesis and simulation-in-the-loop validation
 - system identification pipelines that blend physics with data-driven optimization
 
-The methodology also generalizes beyond this exact vehicle. If a system can be represented with a
-state-space model and enough trajectory data exists, the same ODE-constrained optimization workflow applies.
-On real-world data, the model structure, sensor assumptions, and noise handling may need to be tuned, but the
-core idea remains unchanged: fit a physically meaningful model using differentiable simulation rather than
-purely empirical curve fitting.
+The methodology can extend beyond this vehicle. If a system can be represented with a state-space model and
+enough trajectory data is available, the same ODE-constrained optimization workflow may apply. This project
+demonstrates the approach with Webots simulation data; applying it to real-vehicle data would require tuning
+the model structure, sensor assumptions, and noise handling to the measurement setup.
 
 This project is intentionally aligned with the SciML philosophy: Julia, automatic differentiation, ODE
 solvers, and optimization in one coherent workflow. It is a practical bridge between classical dynamics and
@@ -235,8 +233,8 @@ Julia right-hand side to 1e-10 and a full 2-second trajectory to 1e-9. Run both 
 the physics: a stale fixture is exactly the failure the check exists to surface.
 
 There are two copies of the model — Julia for fitting, Python because a Webots controller has to compute
-in-process to reach a `Display` device. The parity check is what keeps them honest; in this repository it
-passes with **zero** error on every state component.
+in-process to reach a `Display` device. The parity check is what keeps them honest; the checked fixtures
+currently pass with **zero reported error** on every state component.
 
 ### 4. Render the movie
 
@@ -248,7 +246,7 @@ About a minute of wall clock for 23 s of simulation. `--mode=realtime` is requir
 `--no-rendering` disable 3D rendering entirely, and the movie comes out as a still frame with a live panel
 on top. Output goes to `media/`.
 
-Then re-encode and extract the stills:
+Then re-encode the movie for delivery:
 
 ```powershell
 ffmpeg -i media/postopt_raw.mp4 -c:v libx264 -preset slow -crf 19 -pix_fmt yuv420p `
