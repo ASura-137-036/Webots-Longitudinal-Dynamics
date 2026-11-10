@@ -60,6 +60,24 @@ solvers, and optimization in one coherent workflow. It is a practical bridge bet
 the modern machine-learning mindset of learning dynamics from data while keeping the model physically
 grounded and interpretable.
 
+## Where this can go next
+
+The current project focuses on identifying and validating a compact physics-based model. Several natural
+extensions build on that foundation:
+
+- **Hybrid physics–ML modeling:** retain the half-car equations as the interpretable core, then investigate
+  adding a learned residual (for example, a neural network or Kolmogorov-Arnold Network) to represent
+  unmodeled effects. Such corrections would need careful validation, especially outside the conditions
+  covered by the calibration data.
+- **Control development:** use the identified model in model predictive control (MPC), then compare it
+  with a reinforcement-learning (RL) controller on the same task and simulator.
+- **Sensitivity and generalization:** study which parameters the available trajectories can identify,
+  how sensitive predictions are to them, and how calibration transfers across operating conditions.
+
+These are future directions, not features implemented in the current project. They reflect the broader
+goal: combine physical structure and data-driven methods where each is most useful, rather than treating
+them as competing approaches.
+
 <p align="center">
   <img src="media/poster_t14.40.png" alt="The fitted half-car model drawn over the Webots vehicle" width="720">
 </p>
