@@ -34,6 +34,13 @@ pipeline without sacrificing physical meaning.
 - strong fit for control-oriented applications and model-based design
 - a general workflow for any system where a mechanistic model exists but the parameters do not
 
+This workflow is especially useful when important physical parameters are difficult or impractical to
+measure directly. Rather than requiring a fully specified, high-fidelity model, it calibrates a compact,
+interpretable model against observed trajectories. Small, targeted parameter adjustments can help that
+model capture the dominant behavior of a more complex system over the operating range of interest, while
+keeping it efficient for prediction and control. It does not reproduce every detail of the complex system;
+its usefulness depends on choosing a model structure and calibration data suited to the task.
+
 The key use cases are immediate and practically relevant:
 
 - model predictive control (MPC) for longitudinal motion, pitch regulation, and load-transfer-aware driving
