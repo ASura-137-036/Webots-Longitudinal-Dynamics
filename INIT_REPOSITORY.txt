@@ -1,0 +1,24 @@
+# Webots Longitudinal Dynamics - initialise and publish
+#
+# Git was not installed when this tree was assembled, so the repository is
+# prepared but not yet initialised. Run these from this folder once git is
+# available (git-lfs must be initialised BEFORE staging, or the 83 MB CSV is
+# committed as a plain blob and the history has to be rewritten).
+
+git init
+git lfs install                      # installs the hooks in this repository
+git add .gitattributes               # stage the LFS rules first
+git add .
+git commit -m "Initial commit: Webots longitudinal dynamics identification
+
+Half-car model fitted to a Webots recording of a Range Rover SVR under a
+scripted throttle/brake schedule. Twenty-one estimated parameters, held-out
+objective 7.65, parity between the Julia fit and the Python controller port
+exact to 0.
+
+Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+
+git lfs ls-files                     # expect 3 entries: 2 CSVs and the jld2
+git remote add origin <your-github-url>
+git branch -M main
+git push -u origin main

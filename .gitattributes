@@ -1,0 +1,21 @@
+# Git LFS: the datasets are 83 and 79 MB, and the movie is 11 MB. Committing these as plain blobs
+# would put the repository near GitHub's hard per-file limit and make every clone pay for history it
+# will never read. `git lfs install` must run before the first `git add` for these rules to take effect.
+*.csv  filter=lfs diff=lfs merge=lfs -text
+*.mp4  filter=lfs diff=lfs merge=lfs -text
+*.jld2 filter=lfs diff=lfs merge=lfs -text
+
+# Text files: normalise to LF so the repository is usable from any platform. Webots writes CRLF on
+# Windows, but the parser does not care.
+*.py    text eol=lf
+*.jl    text eol=lf
+*.md    text eol=lf
+*.toml  text eol=lf
+*.json  text eol=lf
+*.proto text eol=lf
+*.wbt   text eol=lf
+
+# Binary assets that are small enough to commit directly.
+*.png   binary
+*.jpg   binary
+*.gif   binary

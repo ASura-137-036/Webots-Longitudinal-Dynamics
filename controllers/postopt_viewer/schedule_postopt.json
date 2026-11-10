@@ -1,0 +1,119 @@
+[
+  {
+    "name": "settle",
+    "duration": 2.0,
+    "throttle": 0.0,
+    "brake": 0.0
+  },
+  {
+    "name": "launch_a",
+    "duration": 3.0,
+    "throttle": 0.55,
+    "brake": 0.0
+  },
+  {
+    "name": "plateau_a",
+    "duration": 1.0,
+    "throttle": 0.55,
+    "brake": 0.0
+  },
+  {
+    "name": "diedown_a",
+    "duration": 8.0,
+    "throttle": 0.0,
+    "brake": 0.5,
+    "end_speed_below": 0.4
+  },
+  {
+    "name": "rest_a",
+    "duration": 0.6,
+    "throttle": 0.0,
+    "brake": 0.5
+  },
+  {
+    "name": "launch_b",
+    "duration": 3.0,
+    "throttle": 0.55,
+    "brake": 0.0
+  },
+  {
+    "name": "diedown_b",
+    "duration": 8.0,
+    "throttle": 0.0,
+    "brake": 0.5,
+    "end_speed_below": 0.4
+  },
+  {
+    "name": "rest_b",
+    "duration": 0.6,
+    "throttle": 0.0,
+    "brake": 0.5
+  },
+  {
+    "name": "roll_up",
+    "duration": 1.2,
+    "throttle": 0.35,
+    "brake": 0.0
+  },
+  {
+    "name": "pulse_1_thr",
+    "duration": 1.0,
+    "throttle": 0.6,
+    "brake": 0.0
+  },
+  {
+    "name": "pulse_1_brk",
+    "duration": 1.0,
+    "throttle": 0.0,
+    "brake": 0.4
+  },
+  {
+    "name": "pulse_2_thr",
+    "duration": 1.0,
+    "throttle": 0.6,
+    "brake": 0.0
+  },
+  {
+    "name": "pulse_2_brk",
+    "duration": 1.0,
+    "throttle": 0.0,
+    "brake": 0.4
+  },
+  {
+    "name": "pulse_3_thr",
+    "duration": 1.0,
+    "throttle": 0.6,
+    "brake": 0.0
+  },
+  {
+    "name": "pulse_3_brk",
+    "duration": 1.0,
+    "throttle": 0.0,
+    "brake": 0.4
+  },
+  {
+    "name": "pulse_4_thr",
+    "duration": 1.0,
+    "throttle": 0.6,
+    "brake": 0.0
+  },
+  {
+    "name": "pulse_4_brk",
+    "duration": 1.0,
+    "throttle": 0.0,
+    "brake": 0.4
+  },
+  {
+    "name": "final_diedown",
+    "duration": 8.0,
+    "throttle": 0.0,
+    "brake": 0.5,
+    "end_speed_below": 0.4
+  },
+  {
+    "name": "final_hold",
+    "duration": 0.8,
+    "throttle": 0.0,
+    "brake": 0.5
+  }
+]

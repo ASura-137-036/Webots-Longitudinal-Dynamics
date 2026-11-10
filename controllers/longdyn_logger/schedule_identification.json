@@ -1,0 +1,1410 @@
+[
+  {
+    "comment": "B0 settle, then B1 launch: 2 s full throttle hits the 64 km/h torque cut-off and logs the limiter",
+    "name": "settle",
+    "block": "prep",
+    "duration": 3.0,
+    "throttle": 0.0,
+    "brake": 0.0
+  },
+  {
+    "name": "launch",
+    "block": "launch",
+    "duration": 2.0,
+    "throttle": 1.0,
+    "brake": 0.0
+  },
+  {
+    "name": "launch_coast",
+    "block": "launch",
+    "duration": 1.0,
+    "throttle": 0.0,
+    "brake": 0.0
+  },
+  {
+    "comment": "R REDLINE: modulation and brake events interleaved at the limiter, then five redline->standstill cycles"
+  },
+  {
+    "name": "rl_mod_up",
+    "block": "redline",
+    "duration": 8.0,
+    "throttle": 1.0,
+    "brake": 0.0,
+    "end_speed_above": 63.0,
+    "min_duration": 0.3
+  },
+  {
+    "name": "rl_mod_hold",
+    "block": "redline",
+    "duration": 2.0,
+    "throttle": 1.0,
+    "brake": 0.0
+  },
+  {
+    "name": "rl_brk010",
+    "block": "redline",
+    "duration": 1.0,
+    "throttle": 0.0,
+    "brake": 0.1,
+    "end_speed_below": 50.0
+  },
+  {
+    "name": "rl_up1",
+    "block": "redline",
+    "duration": 4.0,
+    "throttle": 1.0,
+    "brake": 0.0,
+    "end_speed_above": 63.0,
+    "min_duration": 0.2
+  },
+  {
+    "name": "rl_mod085",
+    "block": "redline",
+    "duration": 1.5,
+    "throttle": 0.85,
+    "brake": 0.0
+  },
+  {
+    "name": "rl_brk020",
+    "block": "redline",
+    "duration": 1.0,
+    "throttle": 0.0,
+    "brake": 0.2,
+    "end_speed_below": 45.0
+  },
+  {
+    "name": "rl_up2",
+    "block": "redline",
+    "duration": 4.0,
+    "throttle": 1.0,
+    "brake": 0.0,
+    "end_speed_above": 63.0,
+    "min_duration": 0.2
+  },
+  {
+    "name": "rl_mod070",
+    "block": "redline",
+    "duration": 1.5,
+    "throttle": 0.7,
+    "brake": 0.0
+  },
+  {
+    "name": "rl_brk035",
+    "block": "redline",
+    "duration": 1.0,
+    "throttle": 0.0,
+    "brake": 0.35,
+    "end_speed_below": 40.0
+  },
+  {
+    "name": "rl_up3",
+    "block": "redline",
+    "duration": 4.0,
+    "throttle": 1.0,
+    "brake": 0.0,
+    "end_speed_above": 63.0,
+    "min_duration": 0.2
+  },
+  {
+    "name": "rl_mod055",
+    "block": "redline",
+    "duration": 1.5,
+    "throttle": 0.55,
+    "brake": 0.0
+  },
+  {
+    "name": "rl_coast",
+    "block": "redline",
+    "duration": 2.0,
+    "throttle": 0.0,
+    "brake": 0.0
+  },
+  {
+    "name": "rl_c1_up",
+    "block": "redline",
+    "duration": 8.0,
+    "throttle": 1.0,
+    "brake": 0.0,
+    "end_speed_above": 63.0,
+    "min_duration": 0.3
+  },
+  {
+    "name": "rl_c1_hold",
+    "block": "redline",
+    "duration": 2.0,
+    "throttle": 1.0,
+    "brake": 0.0
+  },
+  {
+    "name": "rl_c1_brk010",
+    "block": "redline",
+    "duration": 12.0,
+    "throttle": 0.0,
+    "brake": 0.1,
+    "end_speed_below": 0.5
+  },
+  {
+    "name": "rl_c1_rest",
+    "block": "redline",
+    "duration": 1.2,
+    "throttle": 0.0,
+    "brake": 1.0
+  },
+  {
+    "name": "rl_c2_up",
+    "block": "redline",
+    "duration": 8.0,
+    "throttle": 1.0,
+    "brake": 0.0,
+    "end_speed_above": 63.0,
+    "min_duration": 0.3
+  },
+  {
+    "name": "rl_c2_hold",
+    "block": "redline",
+    "duration": 2.0,
+    "throttle": 1.0,
+    "brake": 0.0
+  },
+  {
+    "name": "rl_c2_brk025",
+    "block": "redline",
+    "duration": 12.0,
+    "throttle": 0.0,
+    "brake": 0.25,
+    "end_speed_below": 0.5
+  },
+  {
+    "name": "rl_c2_rest",
+    "block": "redline",
+    "duration": 1.2,
+    "throttle": 0.0,
+    "brake": 1.0
+  },
+  {
+    "name": "rl_c3_up",
+    "block": "redline",
+    "duration": 8.0,
+    "throttle": 1.0,
+    "brake": 0.0,
+    "end_speed_above": 63.0,
+    "min_duration": 0.3
+  },
+  {
+    "name": "rl_c3_hold",
+    "block": "redline",
+    "duration": 2.0,
+    "throttle": 1.0,
+    "brake": 0.0
+  },
+  {
+    "name": "rl_c3_brk050",
+    "block": "redline",
+    "duration": 12.0,
+    "throttle": 0.0,
+    "brake": 0.5,
+    "end_speed_below": 0.5
+  },
+  {
+    "name": "rl_c3_rest",
+    "block": "redline",
+    "duration": 1.2,
+    "throttle": 0.0,
+    "brake": 1.0
+  },
+  {
+    "name": "rl_c4_up",
+    "block": "redline",
+    "duration": 8.0,
+    "throttle": 1.0,
+    "brake": 0.0,
+    "end_speed_above": 63.0,
+    "min_duration": 0.3
+  },
+  {
+    "name": "rl_c4_hold",
+    "block": "redline",
+    "duration": 2.0,
+    "throttle": 1.0,
+    "brake": 0.0
+  },
+  {
+    "name": "rl_c4_brk075",
+    "block": "redline",
+    "duration": 12.0,
+    "throttle": 0.0,
+    "brake": 0.75,
+    "end_speed_below": 0.5
+  },
+  {
+    "name": "rl_c4_rest",
+    "block": "redline",
+    "duration": 1.2,
+    "throttle": 0.0,
+    "brake": 1.0
+  },
+  {
+    "name": "rl_c5_up",
+    "block": "redline",
+    "duration": 8.0,
+    "throttle": 1.0,
+    "brake": 0.0,
+    "end_speed_above": 63.0,
+    "min_duration": 0.3
+  },
+  {
+    "name": "rl_c5_hold",
+    "block": "redline",
+    "duration": 2.0,
+    "throttle": 1.0,
+    "brake": 0.0
+  },
+  {
+    "name": "rl_c5_brk100",
+    "block": "redline",
+    "duration": 12.0,
+    "throttle": 0.0,
+    "brake": 1.0,
+    "end_speed_below": 0.5
+  },
+  {
+    "name": "rl_c5_rest",
+    "block": "redline",
+    "duration": 1.2,
+    "throttle": 0.0,
+    "brake": 1.0
+  },
+  {
+    "comment": "R REDLINE CYCLES: every cycle runs up to the limiter, holds 2 s, then brakes to a standstill at a different level"
+  },
+  {
+    "comment": "R1-R5 REDLINE: limiter limit-cycle, modulation at the cut-off, braking and coast from top speed"
+  },
+  {
+    "comment": "B2 throttle ramp events: ramp up, hold, die down; entry speed varied 5..12 km/h"
+  },
+  {
+    "type": "regulate",
+    "name": "rtq015_reg",
+    "block": "reg",
+    "duration": 6.0,
+    "speed_kmh": 5.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "ramp_event",
+    "name": "rtq015",
+    "block": "ramp_tq",
+    "channel": "throttle",
+    "amplitude": 0.15,
+    "attack": 0.5,
+    "hold": 3.5,
+    "release": 0.5,
+    "min_duration": 0.3,
+    "end_speed_above": 55.0
+  },
+  {
+    "name": "rtq015_die",
+    "block": "ramp_tq",
+    "duration": 4.0,
+    "throttle": 0.0,
+    "brake": 0.15,
+    "ramp": 0.4,
+    "end_speed_below": 12.0
+  },
+  {
+    "type": "regulate",
+    "name": "rtq030_reg",
+    "block": "reg",
+    "duration": 6.0,
+    "speed_kmh": 8.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "ramp_event",
+    "name": "rtq030",
+    "block": "ramp_tq",
+    "channel": "throttle",
+    "amplitude": 0.3,
+    "attack": 0.5,
+    "hold": 3.5,
+    "release": 0.5,
+    "min_duration": 0.3,
+    "end_speed_above": 55.0
+  },
+  {
+    "name": "rtq030_die",
+    "block": "ramp_tq",
+    "duration": 4.0,
+    "throttle": 0.0,
+    "brake": 0.15,
+    "ramp": 0.4,
+    "end_speed_below": 12.0
+  },
+  {
+    "type": "regulate",
+    "name": "rtq050_reg",
+    "block": "reg",
+    "duration": 6.0,
+    "speed_kmh": 12.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "ramp_event",
+    "name": "rtq050",
+    "block": "ramp_tq",
+    "channel": "throttle",
+    "amplitude": 0.5,
+    "attack": 0.5,
+    "hold": 3.5,
+    "release": 0.5,
+    "min_duration": 0.3,
+    "end_speed_above": 55.0
+  },
+  {
+    "name": "rtq050_die",
+    "block": "ramp_tq",
+    "duration": 4.0,
+    "throttle": 0.0,
+    "brake": 0.15,
+    "ramp": 0.4,
+    "end_speed_below": 12.0
+  },
+  {
+    "type": "regulate",
+    "name": "rtq065_reg",
+    "block": "reg",
+    "duration": 6.0,
+    "speed_kmh": 10.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "ramp_event",
+    "name": "rtq065",
+    "block": "ramp_tq",
+    "channel": "throttle",
+    "amplitude": 0.65,
+    "attack": 0.5,
+    "hold": 3.5,
+    "release": 0.5,
+    "min_duration": 0.3,
+    "end_speed_above": 55.0
+  },
+  {
+    "name": "rtq065_die",
+    "block": "ramp_tq",
+    "duration": 4.0,
+    "throttle": 0.0,
+    "brake": 0.15,
+    "ramp": 0.4,
+    "end_speed_below": 12.0
+  },
+  {
+    "type": "regulate",
+    "name": "rtq080_reg",
+    "block": "reg",
+    "duration": 6.0,
+    "speed_kmh": 8.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "ramp_event",
+    "name": "rtq080",
+    "block": "ramp_tq",
+    "channel": "throttle",
+    "amplitude": 0.8,
+    "attack": 0.5,
+    "hold": 3.5,
+    "release": 0.5,
+    "min_duration": 0.3,
+    "end_speed_above": 55.0
+  },
+  {
+    "name": "rtq080_die",
+    "block": "ramp_tq",
+    "duration": 4.0,
+    "throttle": 0.0,
+    "brake": 0.15,
+    "ramp": 0.4,
+    "end_speed_below": 12.0
+  },
+  {
+    "type": "regulate",
+    "name": "rtq100_reg",
+    "block": "reg",
+    "duration": 6.0,
+    "speed_kmh": 5.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "ramp_event",
+    "name": "rtq100",
+    "block": "ramp_tq",
+    "channel": "throttle",
+    "amplitude": 1.0,
+    "attack": 0.5,
+    "hold": 3.5,
+    "release": 0.5,
+    "min_duration": 0.3,
+    "end_speed_above": 55.0
+  },
+  {
+    "name": "rtq100_die",
+    "block": "ramp_tq",
+    "duration": 4.0,
+    "throttle": 0.0,
+    "brake": 0.15,
+    "ramp": 0.4,
+    "end_speed_below": 12.0
+  },
+  {
+    "comment": "B3 brake ramp events from 55 km/h"
+  },
+  {
+    "type": "regulate",
+    "name": "rbk005_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 55.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "ramp_event",
+    "name": "rbk005",
+    "block": "ramp_bk",
+    "channel": "brake",
+    "amplitude": 0.05,
+    "attack": 0.3,
+    "hold": 1.0,
+    "release": 0.8,
+    "min_duration": 0.3,
+    "end_speed_below": 20.0
+  },
+  {
+    "type": "regulate",
+    "name": "rbk010_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 55.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "ramp_event",
+    "name": "rbk010",
+    "block": "ramp_bk",
+    "channel": "brake",
+    "amplitude": 0.1,
+    "attack": 0.3,
+    "hold": 1.0,
+    "release": 0.8,
+    "min_duration": 0.3,
+    "end_speed_below": 20.0
+  },
+  {
+    "type": "regulate",
+    "name": "rbk020_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 55.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "ramp_event",
+    "name": "rbk020",
+    "block": "ramp_bk",
+    "channel": "brake",
+    "amplitude": 0.2,
+    "attack": 0.3,
+    "hold": 1.0,
+    "release": 0.8,
+    "min_duration": 0.3,
+    "end_speed_below": 20.0
+  },
+  {
+    "type": "regulate",
+    "name": "rbk040_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 55.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "ramp_event",
+    "name": "rbk040",
+    "block": "ramp_bk",
+    "channel": "brake",
+    "amplitude": 0.4,
+    "attack": 0.3,
+    "hold": 0.6,
+    "release": 0.8,
+    "min_duration": 0.3,
+    "end_speed_below": 20.0
+  },
+  {
+    "comment": "B4 attack/release asymmetry at 0.30"
+  },
+  {
+    "type": "regulate",
+    "name": "ras_slow_up_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 12.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "ramp_event",
+    "name": "ras_slow_up",
+    "block": "ramp_rev",
+    "channel": "throttle",
+    "amplitude": 0.3,
+    "attack": 2.0,
+    "hold": 1.0,
+    "release": 0.2,
+    "min_duration": 0.3,
+    "end_speed_above": 50.0
+  },
+  {
+    "name": "ras_slow_up_die",
+    "block": "ramp_rev",
+    "duration": 4.0,
+    "throttle": 0.0,
+    "brake": 0.15,
+    "ramp": 0.4,
+    "end_speed_below": 12.0
+  },
+  {
+    "type": "regulate",
+    "name": "ras_fast_up_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 12.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "ramp_event",
+    "name": "ras_fast_up",
+    "block": "ramp_rev",
+    "channel": "throttle",
+    "amplitude": 0.3,
+    "attack": 0.2,
+    "hold": 1.0,
+    "release": 2.0,
+    "min_duration": 0.3,
+    "end_speed_above": 50.0
+  },
+  {
+    "name": "ras_fast_up_die",
+    "block": "ramp_rev",
+    "duration": 4.0,
+    "throttle": 0.0,
+    "brake": 0.15,
+    "ramp": 0.4,
+    "end_speed_below": 12.0
+  },
+  {
+    "comment": "B5 throttle sine, never negative"
+  },
+  {
+    "type": "regulate",
+    "name": "sqt02_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 20.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "name": "sqt02",
+    "block": "sine_tq",
+    "type": "sine",
+    "channel": "throttle",
+    "duration": 4.0,
+    "mean": 0.12,
+    "amplitude": 0.1,
+    "frequency": 0.2
+  },
+  {
+    "type": "regulate",
+    "name": "sqt05_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 20.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "name": "sqt05",
+    "block": "sine_tq",
+    "type": "sine",
+    "channel": "throttle",
+    "duration": 4.0,
+    "mean": 0.12,
+    "amplitude": 0.1,
+    "frequency": 0.5
+  },
+  {
+    "type": "regulate",
+    "name": "sqt10_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 20.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "name": "sqt10",
+    "block": "sine_tq",
+    "type": "sine",
+    "channel": "throttle",
+    "duration": 4.0,
+    "mean": 0.12,
+    "amplitude": 0.1,
+    "frequency": 1.0
+  },
+  {
+    "type": "regulate",
+    "name": "sqt35_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 8.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "name": "sqt35",
+    "block": "sine_tq",
+    "type": "sine",
+    "channel": "throttle",
+    "duration": 2.0,
+    "mean": 0.35,
+    "amplitude": 0.15,
+    "frequency": 0.5
+  },
+  {
+    "comment": "B6 brake sine, never negative"
+  },
+  {
+    "type": "regulate",
+    "name": "sbk02_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 50.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "name": "sbk02",
+    "block": "sine_bk",
+    "type": "sine",
+    "channel": "brake",
+    "duration": 3.0,
+    "mean": 0.05,
+    "amplitude": 0.04,
+    "frequency": 0.2
+  },
+  {
+    "type": "regulate",
+    "name": "sbk05_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 50.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "name": "sbk05",
+    "block": "sine_bk",
+    "type": "sine",
+    "channel": "brake",
+    "duration": 3.0,
+    "mean": 0.05,
+    "amplitude": 0.04,
+    "frequency": 0.5
+  },
+  {
+    "type": "regulate",
+    "name": "sbk35_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 55.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "name": "sbk35",
+    "block": "sine_bk",
+    "type": "sine",
+    "channel": "brake",
+    "duration": 0.8,
+    "mean": 0.3,
+    "amplitude": 0.12,
+    "frequency": 0.5
+  },
+  {
+    "comment": "B7 square alternation: throttle t, then brake t, no gap"
+  },
+  {
+    "type": "regulate",
+    "name": "sq_t050_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 50.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "square_alternate",
+    "block": "sq_pulse",
+    "prefix": "sq_t050",
+    "t": 0.5,
+    "count": 6,
+    "throttle_level": 0.3,
+    "brake_level": 0.2
+  },
+  {
+    "type": "regulate",
+    "name": "sq_t100_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 40.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "square_alternate",
+    "block": "sq_pulse",
+    "prefix": "sq_t100",
+    "t": 1.0,
+    "count": 6,
+    "throttle_level": 0.3,
+    "brake_level": 0.2
+  },
+  {
+    "type": "regulate",
+    "name": "sq_t200_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 25.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "square_alternate",
+    "block": "sq_pulse",
+    "prefix": "sq_t200",
+    "t": 2.0,
+    "count": 6,
+    "throttle_level": 0.2,
+    "brake_level": 0.12
+  },
+  {
+    "type": "regulate",
+    "name": "sq_t100_lo_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 20.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "square_alternate",
+    "block": "sq_pulse",
+    "prefix": "sq_t100_lo",
+    "t": 1.0,
+    "count": 6,
+    "throttle_level": 0.35,
+    "brake_level": 0.25
+  },
+  {
+    "comment": "B8 brake ramp at high speed, then throttle ramp at the lower speed"
+  },
+  {
+    "type": "regulate",
+    "name": "bktq1_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 55.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "ramp_event",
+    "name": "bktq1_brake",
+    "block": "bk_tq",
+    "channel": "brake",
+    "amplitude": 0.15,
+    "attack": 0.4,
+    "hold": 0.6,
+    "release": 0.4,
+    "min_duration": 0.3,
+    "end_speed_below": 20.0
+  },
+  {
+    "name": "bktq1_coast",
+    "block": "bk_tq",
+    "duration": 1.0,
+    "throttle": 0.0,
+    "brake": 0.0
+  },
+  {
+    "type": "ramp_event",
+    "name": "bktq1_throttle",
+    "block": "bk_tq",
+    "channel": "throttle",
+    "amplitude": 0.4,
+    "attack": 0.5,
+    "hold": 1.0,
+    "release": 0.5,
+    "min_duration": 0.3,
+    "end_speed_above": 50.0
+  },
+  {
+    "name": "bktq1_die",
+    "block": "bk_tq",
+    "duration": 4.0,
+    "throttle": 0.0,
+    "brake": 0.15,
+    "ramp": 0.4,
+    "end_speed_below": 12.0
+  },
+  {
+    "type": "regulate",
+    "name": "bktq2_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 55.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "ramp_event",
+    "name": "bktq2_brake",
+    "block": "bk_tq",
+    "channel": "brake",
+    "amplitude": 0.25,
+    "attack": 0.4,
+    "hold": 0.6,
+    "release": 0.4,
+    "min_duration": 0.3,
+    "end_speed_below": 20.0
+  },
+  {
+    "name": "bktq2_coast",
+    "block": "bk_tq",
+    "duration": 1.0,
+    "throttle": 0.0,
+    "brake": 0.0
+  },
+  {
+    "type": "ramp_event",
+    "name": "bktq2_throttle",
+    "block": "bk_tq",
+    "channel": "throttle",
+    "amplitude": 0.6,
+    "attack": 0.5,
+    "hold": 1.0,
+    "release": 0.5,
+    "min_duration": 0.3,
+    "end_speed_above": 50.0
+  },
+  {
+    "name": "bktq2_die",
+    "block": "bk_tq",
+    "duration": 4.0,
+    "throttle": 0.0,
+    "brake": 0.15,
+    "ramp": 0.4,
+    "end_speed_below": 12.0
+  },
+  {
+    "comment": "B9 level sweeps, the monotonic level -> acceleration maps"
+  },
+  {
+    "type": "regulated_sweep",
+    "block": "thr_high",
+    "channel": "throttle",
+    "prefix": "hi",
+    "levels": [
+      0.1,
+      0.2,
+      0.35,
+      0.5,
+      0.65,
+      0.8,
+      1.0
+    ],
+    "hold": 0.8,
+    "gap": 1.0,
+    "reset": {
+      "mode": "hold",
+      "speed_kmh": 45.0,
+      "band": 2.5,
+      "duration": 5.0
+    }
+  },
+  {
+    "type": "regulated_sweep",
+    "block": "brk_lvl",
+    "channel": "brake",
+    "prefix": "bk",
+    "levels": [
+      0.02,
+      0.05,
+      0.08,
+      0.12,
+      0.2,
+      0.35,
+      0.6,
+      1.0
+    ],
+    "hold": 0.8,
+    "gap": 0.5,
+    "reset": {
+      "mode": "hold",
+      "speed_kmh": 40.0,
+      "band": 2.5,
+      "duration": 5.0
+    },
+    "end_speed_below": 18.0
+  },
+  {
+    "comment": "B10 alternating pulses, kept from the verified schedule"
+  },
+  {
+    "type": "regulate",
+    "name": "palt_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 40.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "alternate",
+    "block": "p_alt",
+    "pulse": 0.5,
+    "gap": 1.0,
+    "count": 6,
+    "prefix": "alt",
+    "throttle_level": 0.5,
+    "brake_level": 0.1
+  },
+  {
+    "comment": "B11 high-level pulse trains: throttle 0.80 / 1.00, brake 0.10 .. 1.00"
+  },
+  {
+    "type": "regulate",
+    "name": "tqp080_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 5.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "pulse_train",
+    "block": "p_tq_hi",
+    "channel": "throttle",
+    "level": 0.8,
+    "pulse": 0.5,
+    "gap": 1.0,
+    "count": 3,
+    "prefix": "tqp080"
+  },
+  {
+    "type": "regulate",
+    "name": "tqp100_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 5.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "pulse_train",
+    "block": "p_tq_hi",
+    "channel": "throttle",
+    "level": 1.0,
+    "pulse": 0.5,
+    "gap": 1.0,
+    "count": 2,
+    "prefix": "tqp100"
+  },
+  {
+    "type": "regulate",
+    "name": "bkp010_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 55.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "pulse_train",
+    "block": "p_bk_hi",
+    "channel": "brake",
+    "level": 0.1,
+    "pulse": 0.5,
+    "gap": 1.0,
+    "count": 3,
+    "prefix": "bkp010",
+    "end_speed_below": 18.0
+  },
+  {
+    "type": "regulate",
+    "name": "bkp020_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 55.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "pulse_train",
+    "block": "p_bk_hi",
+    "channel": "brake",
+    "level": 0.2,
+    "pulse": 0.5,
+    "gap": 1.0,
+    "count": 3,
+    "prefix": "bkp020",
+    "end_speed_below": 18.0
+  },
+  {
+    "type": "regulate",
+    "name": "bkp040_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 55.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "pulse_train",
+    "block": "p_bk_hi",
+    "channel": "brake",
+    "level": 0.4,
+    "pulse": 0.5,
+    "gap": 1.0,
+    "count": 2,
+    "prefix": "bkp040",
+    "end_speed_below": 18.0
+  },
+  {
+    "type": "regulate",
+    "name": "bkp060_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 55.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "pulse_train",
+    "block": "p_bk_hi",
+    "channel": "brake",
+    "level": 0.6,
+    "pulse": 0.5,
+    "gap": 1.0,
+    "count": 1,
+    "prefix": "bkp060",
+    "end_speed_below": 18.0
+  },
+  {
+    "type": "regulate",
+    "name": "bkp100_reg",
+    "block": "reg",
+    "duration": 5.0,
+    "speed_kmh": 55.0,
+    "band": 2.5,
+    "min_duration": 0.3
+  },
+  {
+    "type": "pulse_train",
+    "block": "p_bk_hi",
+    "channel": "brake",
+    "level": 1.0,
+    "pulse": 0.5,
+    "gap": 1.0,
+    "count": 1,
+    "prefix": "bkp100",
+    "end_speed_below": 18.0
+  },
+  {
+    "comment": "B12 stop"
+  },
+  {
+    "comment": "Z1-Z3 ZERO SPEED: breakaway sweep, static brake hold, stop-and-go (placed last so a wheel lock cannot spoil earlier data)"
+  },
+  {
+    "comment": "Z1-Z3 ZERO SPEED: one breakaway pulse per level, each started from a standstill"
+  },
+  {
+    "name": "z_stop",
+    "block": "zero",
+    "duration": 10.0,
+    "throttle": 0.0,
+    "brake": 1.0,
+    "end_speed_below": 0.5
+  },
+  {
+    "name": "z_rest",
+    "block": "zero",
+    "duration": 2.0,
+    "throttle": 0.0,
+    "brake": 1.0
+  },
+  {
+    "name": "z_bk002",
+    "block": "zero",
+    "duration": 1.0,
+    "throttle": 0.02,
+    "brake": 0.0
+  },
+  {
+    "name": "z_bk002_stop",
+    "block": "zero",
+    "duration": 4.0,
+    "throttle": 0.0,
+    "brake": 1.0,
+    "end_speed_below": 0.4
+  },
+  {
+    "name": "z_bk002_rest",
+    "block": "zero",
+    "duration": 1.2,
+    "throttle": 0.0,
+    "brake": 1.0
+  },
+  {
+    "name": "z_bk005",
+    "block": "zero",
+    "duration": 1.0,
+    "throttle": 0.05,
+    "brake": 0.0
+  },
+  {
+    "name": "z_bk005_stop",
+    "block": "zero",
+    "duration": 4.0,
+    "throttle": 0.0,
+    "brake": 1.0,
+    "end_speed_below": 0.4
+  },
+  {
+    "name": "z_bk005_rest",
+    "block": "zero",
+    "duration": 1.2,
+    "throttle": 0.0,
+    "brake": 1.0
+  },
+  {
+    "name": "z_bk010",
+    "block": "zero",
+    "duration": 1.0,
+    "throttle": 0.1,
+    "brake": 0.0
+  },
+  {
+    "name": "z_bk010_stop",
+    "block": "zero",
+    "duration": 4.0,
+    "throttle": 0.0,
+    "brake": 1.0,
+    "end_speed_below": 0.4
+  },
+  {
+    "name": "z_bk010_rest",
+    "block": "zero",
+    "duration": 1.2,
+    "throttle": 0.0,
+    "brake": 1.0
+  },
+  {
+    "name": "z_bk020",
+    "block": "zero",
+    "duration": 1.0,
+    "throttle": 0.2,
+    "brake": 0.0
+  },
+  {
+    "name": "z_bk020_stop",
+    "block": "zero",
+    "duration": 4.0,
+    "throttle": 0.0,
+    "brake": 1.0,
+    "end_speed_below": 0.4
+  },
+  {
+    "name": "z_bk020_rest",
+    "block": "zero",
+    "duration": 1.2,
+    "throttle": 0.0,
+    "brake": 1.0
+  },
+  {
+    "name": "z_bk040",
+    "block": "zero",
+    "duration": 1.0,
+    "throttle": 0.4,
+    "brake": 0.0
+  },
+  {
+    "name": "z_bk040_stop",
+    "block": "zero",
+    "duration": 4.0,
+    "throttle": 0.0,
+    "brake": 1.0,
+    "end_speed_below": 0.4
+  },
+  {
+    "name": "z_bk040_rest",
+    "block": "zero",
+    "duration": 1.2,
+    "throttle": 0.0,
+    "brake": 1.0
+  },
+  {
+    "name": "z_bk070",
+    "block": "zero",
+    "duration": 1.0,
+    "throttle": 0.7,
+    "brake": 0.0
+  },
+  {
+    "name": "z_bk070_stop",
+    "block": "zero",
+    "duration": 4.0,
+    "throttle": 0.0,
+    "brake": 1.0,
+    "end_speed_below": 0.4
+  },
+  {
+    "name": "z_bk070_rest",
+    "block": "zero",
+    "duration": 1.2,
+    "throttle": 0.0,
+    "brake": 1.0
+  },
+  {
+    "name": "z_bk100",
+    "block": "zero",
+    "duration": 1.0,
+    "throttle": 1.0,
+    "brake": 0.0
+  },
+  {
+    "name": "z_bk100_stop",
+    "block": "zero",
+    "duration": 4.0,
+    "throttle": 0.0,
+    "brake": 1.0,
+    "end_speed_below": 0.4
+  },
+  {
+    "name": "z_bk100_rest",
+    "block": "zero",
+    "duration": 1.2,
+    "throttle": 0.0,
+    "brake": 1.0
+  },
+  {
+    "name": "z_hold020",
+    "block": "zero",
+    "duration": 2.0,
+    "throttle": 0.0,
+    "brake": 0.2
+  },
+  {
+    "name": "z_hold050",
+    "block": "zero",
+    "duration": 2.0,
+    "throttle": 0.0,
+    "brake": 0.5
+  },
+  {
+    "name": "z_hold100",
+    "block": "zero",
+    "duration": 2.0,
+    "throttle": 0.0,
+    "brake": 1.0
+  },
+  {
+    "name": "z_hold_rest",
+    "block": "zero",
+    "duration": 1.2,
+    "throttle": 0.0,
+    "brake": 1.0
+  },
+  {
+    "name": "z_sg1l",
+    "block": "zero",
+    "duration": 1.5,
+    "throttle": 1.0,
+    "brake": 0.0
+  },
+  {
+    "name": "z_sg1b",
+    "block": "zero",
+    "duration": 4.0,
+    "throttle": 0.0,
+    "brake": 0.5,
+    "end_speed_below": 0.5
+  },
+  {
+    "name": "z_sg1h",
+    "block": "zero",
+    "duration": 1.0,
+    "throttle": 0.0,
+    "brake": 1.0
+  },
+  {
+    "name": "z_sg2l",
+    "block": "zero",
+    "duration": 1.5,
+    "throttle": 1.0,
+    "brake": 0.0
+  },
+  {
+    "name": "z_sg2b",
+    "block": "zero",
+    "duration": 4.0,
+    "throttle": 0.0,
+    "brake": 0.5,
+    "end_speed_below": 0.5
+  },
+  {
+    "name": "z_sg2h",
+    "block": "zero",
+    "duration": 1.0,
+    "throttle": 0.0,
+    "brake": 1.0
+  },
+  {
+    "name": "final_brake",
+    "block": "stop",
+    "duration": 10.0,
+    "throttle": 0.0,
+    "brake": 1.0,
+    "end_speed_below": 1.0
+  },
+  {
+    "name": "stop_hold",
+    "block": "stop",
+    "duration": 2.0,
+    "throttle": 0.0,
+    "brake": 1.0
+  }
+]
