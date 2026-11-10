@@ -2,12 +2,52 @@
 
 System identification of a vehicle's longitudinal and vertical dynamics from a Webots simulation.
 
+This project is a clean example of modern differentiable simulation: we estimate the parameters of a
+simple physical model by fitting it directly to trajectory data generated from an ODE solve, using
+automatic differentiation and optimization tools from the Julia SciML ecosystem. In other words, the model
+is not a black box — it is a half-car dynamics model with interpretable states and parameters — but the
+fitting methodology is very much in the spirit of modern ML: backpropagate through the trajectory,
+minimize a residual objective, and recover the parameter set that best explains the measured motion.
+
 A Range Rover Sport SVR (converted to electric drive) is driven along a straight highway by a scripted
 throttle and brake schedule while a supervisor controller records about 140 channels — speed, position,
 attitude, suspension heights, wheel contact, bounding boxes, pedal commands, drive speed. A simplified
 half-car model is then fitted to that recording by differentiating through an ODE solver, and the fitted
 model is drawn live over the simulator so the prediction and the measurement can be compared frame by
 frame.
+
+This is the same high-level idea behind differentiable physics and Neural ODEs: learn the dynamics by
+minimizing trajectory mismatch. The difference is that here the model itself is a physically meaningful
+half-car system, not a learned neural network. That makes the result interpretable, embeddable in
+control loops, and usable as a compact digital twin.
+
+## Why this matters
+
+This workflow turns a traditional engineering model into a differentiable, data-driven calibration tool.
+It blends classical vehicle dynamics with modern SciML/auto-diff infrastructure:
+
+- the model is compact, interpretable and physically meaningful
+- the parameters are estimated from real trajectory data
+- the optimization uses gradients through the ODE solution, not just finite differences
+- the final model can be used for simulation, prediction, control design and validation
+
+This is a strong foundation for:
+
+- model predictive control (MPC) of vehicle motion and load transfer
+- digital twins for virtual prototyping and diagnostics
+- parameter estimation on real-world fleet or test-bench data
+- state and disturbance estimation in embedded control stacks
+- controller synthesis and simulation-in-the-loop validation
+
+The methodology generalizes beyond this exact vehicle: if you have a physical model with a good state
+representation, and enough time-series data, the same differentiable identification workflow applies. For
+real-world data, you would typically refine the model structure, add measurement noise handling, and tune
+its states and forcing terms to match the sensor stack. But the core methodology remains the same,
+regardless of whether the data comes from a simulator, a test track, or a production vehicle.
+
+This project is intentionally aligned with the SciML philosophy: Julia + automatic differentiation + ODE
+solvers + optimization in one coherent workflow. It is a practical bridge between classical dynamics and
+modern machine-learning style parameter estimation.
 
 <p align="center">
   <img src="media/poster_t14.40.png" alt="The fitted half-car model drawn over the Webots vehicle" width="720">
@@ -18,6 +58,11 @@ yellow traces are the Webots vehicle; the white traces are the fitted model inte
 measured state.
 
 ## What the model is
+
+This is a compact differentiable dynamics model: a half-car system whose parameters are learned by fitting
+the ODE trajectory to measured data. That is the heart of the project — not just a static vehicle model,
+but a parameter-estimation workflow in the same family as modern differentiable simulation and Neural ODE
+methodology.
 
 Ten states — heave, pitch, two unsprung heights, position, speed and their rates — with a longitudinal
 force made of exactly three terms:
