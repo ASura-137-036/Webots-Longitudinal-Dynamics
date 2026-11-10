@@ -2,54 +2,56 @@
 
 System identification of a vehicle's longitudinal and vertical dynamics from a Webots simulation.
 
-This project demonstrates a modern, SciML-style workflow for fitting a physically meaningful dynamics model
-to trajectory data. Instead of treating the system as a black box, we fit a compact half-car model by
-solving its ODE and using automatic differentiation to recover the parameter values that best explain the
-measured motion. The result is both interpretable and control-relevant: a model grounded in vehicle
-physics, optimized like a machine-learning pipeline, and usable for prediction, validation, and digital-twin
+This project demonstrates a differentiable, physics-grounded workflow for learning the parameters of a
+vehicle dynamics model from trajectory data. Rather than fitting a black-box surrogate, we estimate the
+parameters of a compact half-car model by solving its ODE and backpropagating through the trajectory with
+automatic differentiation. The result is a model that is both interpretable and control-ready: grounded in
+vehicle physics, optimized with modern SciML tooling, and useful for simulation, prediction, and digital-twin
 applications.
 
 A Range Rover Sport SVR (converted to electric drive) is driven along a straight highway by a scripted
-throttle and brake schedule while a supervisor controller records about 140 channels — speed, position,
+throttle and brake schedule while a supervisor controller records roughly 140 channels — speed, position,
 attitude, suspension heights, wheel contact, bounding boxes, pedal commands, and drive speed. The recorded
-trajectory is then used to identify a simplified half-car model by differentiating through the ODE solver,
-and the fitted model is drawn live over the simulator so prediction and measurement can be compared frame by
-frame.
+trace is then used to identify a simplified half-car model by differentiating through its ODE solution, and
+the fitted model is drawn live over the simulator so the prediction and the measurement can be compared in
+real time.
 
-This is the same core idea behind differentiable physics and Neural ODEs: learn dynamics by minimizing
-trajectory mismatch. The difference is that here the model is an interpretable, physically structured
-half-car system rather than a learned neural vector field. That makes the outcome more transparent,
-control-friendly, and reusable in engineering workflows.
+At a high level, the project follows the same recipe that makes differentiable physics and Neural ODEs
+interesting: define a model, simulate it, compare to data, differentiate through the rollout, and optimize
+the parameters until the trajectory matches. The difference is that this model is not a neural network — it
+is an explicit half-car system with clear physical states and parameters. That gives the project a rare mix
+of interpretability, scientific grounding, and modern optimization practice.
 
 ## Why this matters
 
-This project sits at the intersection of classical vehicle dynamics and modern scientific machine learning.
-It turns a traditional engineering model into a differentiable, data-driven calibration workflow that blends
-physics, optimization, and automatic differentiation in one coherent stack.
+This work sits at the intersection of classical vehicle dynamics, optimization, and scientific machine
+learning. It shows how a traditional engineering model can be turned into a differentiable calibration
+pipeline without sacrificing physical meaning.
 
-- compact, interpretable physical model rather than a black-box surrogate
-- gradients through the ODE solution rather than hand-tuned finite-difference fitting
-- parameter estimation from recorded kinematic and dynamic trajectories
-- clear scientific value for control design, diagnostics, and digital twins
-- a reusable methodology for any system where a mechanistic model is available but its parameters are not
+- interpretable, compact model instead of a black-box surrogate
+- gradients through the ODE trajectory rather than ad hoc finite-difference fitting
+- direct parameter estimation from real dynamic measurements
+- strong fit for control-oriented applications and model-based design
+- a general workflow for any system where a mechanistic model exists but the parameters do not
 
-The practical applications are broad:
+The key use cases are immediate and practically relevant:
 
-- model predictive control (MPC) for longitudinal motion, pitch control, and load-transfer-aware driving
-- digital twins for vehicle behavior, diagnostics, and offline simulation
-- parameter identification on real-world test data with tuning to match sensor stacks and noise
+- model predictive control (MPC) for longitudinal motion, pitch regulation, and load-transfer-aware driving
+- digital twins for vehicle behavior, diagnostics, and virtual prototyping
+- calibration of traction, braking, and suspension parameters from test data
 - controller synthesis and simulation-in-the-loop validation
-- system identification workflows that combine physics and learning in a principled way
+- system identification pipelines that blend physics with data-driven optimization
 
-The methodology generalizes beyond this exact vehicle: if you have a good state-space model and enough
-trajectory data, the same differentiable identification workflow applies. On real-world datasets, the same
-approach still works — but the model structure and sensor assumptions often need to be tuned to the actual
-measurement setup. That is the same spirit as modern ML workflows: the model is more interpretable, but the
-optimization process is still data-driven and gradient-based.
+The methodology also generalizes beyond this exact vehicle. If a system can be represented with a
+state-space model and enough trajectory data exists, the same ODE-constrained optimization workflow applies.
+On real-world data, the model structure, sensor assumptions, and noise handling may need to be tuned, but the
+core idea remains unchanged: fit a physically meaningful model using differentiable simulation rather than
+purely empirical curve fitting.
 
 This project is intentionally aligned with the SciML philosophy: Julia, automatic differentiation, ODE
-solvers, and optimization in a single pipeline. It is a practical bridge between classical dynamics and the
-modern machine-learning mindset of learning dynamics from data while keeping the model physically grounded.
+solvers, and optimization in one coherent workflow. It is a practical bridge between classical dynamics and
+the modern machine-learning mindset of learning dynamics from data while keeping the model physically
+grounded and interpretable.
 
 <p align="center">
   <img src="media/poster_t14.40.png" alt="The fitted half-car model drawn over the Webots vehicle" width="720">
@@ -92,23 +94,25 @@ Two of those came from reading the vehicle library's own source rather than gues
 
 ## Why this is close to modern ML, but still interpretable
 
-This project uses the same high-level workflow that makes differentiable systems and Neural ODEs appealing:
+This project follows the same high-level workflow that makes differentiable simulation and Neural ODEs
+appealing:
 
-- build a model with states and dynamics
+- define a model with states and dynamics
 - simulate a trajectory from the model
-- compare it to data
-- differentiate through the ODE solution
-- optimize the parameters until the trajectory matches the measurement
+- compare that trajectory with data
+- propagate gradients through the ODE solution
+- optimize the parameters until the prediction matches the measurement
 
-The difference is structural, not conceptual. Here the model is not a learned black-box network; it is a
-simple half-car system with a clear physical meaning. That means the result is interpretable, testable, and
-usable in engineering contexts. It still inherits the strengths of modern ML-style optimization: gradient
-flow, data-driven calibration, and fast iteration over model structure.
+The difference is structural rather than conceptual. Here the model is not a learned black-box network; it is
+a simple half-car system with a clear physical meaning. That makes the result more transparent, more
+inspectable, and more suitable for engineering use. At the same time, it still benefits from the strengths
+of the modern ML workflow: gradient-based optimization, data-driven calibration, and fast iteration over the
+model structure.
 
-This is exactly why the method is relevant beyond simulation. The same approach can be applied to real-world
-vehicle data, provided the model is tuned to the measurement setup, with careful handling of sensor noise,
-road inputs, and model structure. The methodology is general — the physics model is the differentiable part,
-while the optimization is the learning part.
+This is exactly why the workflow is relevant beyond simulation. The same approach applies to real vehicle data
+as long as the model is tuned to the sensing setup, noise characteristics, and operating regime. In that sense,
+this project sits in a powerful middle ground: a physically meaningful model, but optimized with the style and
+rigor of modern differentiable learning.
 
 ## Results
 
